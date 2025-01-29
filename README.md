@@ -1,6 +1,6 @@
-# React + Vite
+# Sanjay's Personal Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Created in vite with react. Styling is done with css and mantine. Will be including Three js functionality soon. Plan to host on gitlab.
 
 Currently, two official plugins are available:
 
