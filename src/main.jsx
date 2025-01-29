@@ -37,7 +37,9 @@ const theme = createTheme({
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <MantineProvider theme={theme} defaultColorScheme="dark">
-      <App />
+      <div style={{ backgroundColor: "#151515", minHeight: "100vh" }}>
+        <App />
+      </div>
     </MantineProvider>
   </React.StrictMode>
 );

@@ -22,9 +22,9 @@ function App() {
         <AppShell>
           <div className="app-content">
             <Suspense fallback={<LoadingOverlay visible />}>
-              <VectorLogo />
-              <Navbar />
+              {/* <Navbar /> */}
               <main style={{ scrollBehavior: "smooth" }}>
+                {/* <VectorLogo /> */}
                 <Suspense fallback={<LoadingOverlay visible />}>
                   <About />
                 </Suspense>
