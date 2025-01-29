@@ -1,0 +1,10 @@
+.navbar {
+    border-bottom: 1px solid;
+    border-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background: light-dark(#fff, #1a1b1e);
+    z-index: 100;
+  }
+  

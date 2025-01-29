@@ -1,0 +1,29 @@
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #1a1b1e;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+    transition: transform 1s ease-in-out;
+  }
+  
+  .loading-bar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+  
+  .loading-text {
+    position: absolute;
+    bottom: 5rem;
+    left: 5rem;
+    color: white;
+  }
+  
+  .slide-down {
+    transform: translateY(100%);
+  }

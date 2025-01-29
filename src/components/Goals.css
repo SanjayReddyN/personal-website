@@ -1,0 +1,41 @@
+.goal-section {
+    min-height: 400px;
+    margin-bottom: 2rem;
+  }
+  
+  .goal-content {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .image-placeholder {
+    height: 100%;
+    min-height: 300px;
+    background-color: var(--mantine-color-dark-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--mantine-radius-md);
+  }
+  
+  .book-card {
+    transition: transform 0.2s ease;
+  }
+  
+  .book-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .goal-section.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  @media (max-width: 768px) {
+    .goal-section,
+    .goal-section.reverse {
+      flex-direction: column;
+    }
+  }
