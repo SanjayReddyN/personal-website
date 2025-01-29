@@ -29,9 +29,6 @@ function App() {
                   <About />
                 </Suspense>
                 <Suspense fallback={<LoadingOverlay visible />}>
-                  <Skills />
-                </Suspense>
-                <Suspense fallback={<LoadingOverlay visible />}>
                   <Projects />
                 </Suspense>
                 <Suspense fallback={<LoadingOverlay visible />}>

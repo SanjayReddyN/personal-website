@@ -1,5 +1,6 @@
-import { Container, Title, SimpleGrid, Card, Text, Stack } from "@mantine/core";
+import { Text, Stack, Group } from "@mantine/core";
 import useScrollAnimation from "../hooks/useScrollAnimation.js";
+import "../App.css";
 
 const Skills = () => {
   const [ref, isVisible] = useScrollAnimation();
@@ -18,30 +19,30 @@ const Skills = () => {
   };
 
   return (
-    <Container id="skills" size="lg" py="xl">
-      <div ref={ref}>
-        <Title order={2} mb="xl">
+    <div className="skills-container">
+      <Group
+        align="flex-start"
+        spacing="xl"
+        className={`slide-left delay-1
+        }`}
+      >
+        <Text className="skills-header" weight={700}>
           Skills
-        </Title>
-        <SimpleGrid cols={2} spacing="xl">
-          {Object.entries(skillCategories).map(([category, skills], index) => (
-            <Card
-              key={category}
-              shadow="sm"
-              padding="lg"
-              className={`animate-on-scroll slide-up delay-${index + 1} ${
-                isVisible ? "is-visible" : ""
-              }`}
-            >
-              <Stack>
-                <Text weight={700}>{category}</Text>
-                <Text>{skills.join(", ")}</Text>
-              </Stack>
-            </Card>
+        </Text>
+        <Stack spacing="lg" className="skills-list">
+          {Object.entries(skillCategories).map(([category, skills]) => (
+            <div key={category}>
+              <Text size="sm" weight={500} mb="xs">
+                {category}
+              </Text>
+              <Text size="sm" color="dimmed">
+                {skills.join(", ")}
+              </Text>
+            </div>
           ))}
-        </SimpleGrid>
-      </div>
-    </Container>
+        </Stack>
+      </Group>
+    </div>
   );
 };
 
