@@ -1,4 +1,4 @@
-import { Text, Stack, Group } from "@mantine/core";
+import { Text, Stack, Group, Box } from "@mantine/core";
 import "./about/About.css";
 import { useEffect, useRef } from "react";
 import profileImage from "../images/Me.jpg";
@@ -55,44 +55,43 @@ const About = () => {
   return (
     <section id="about" className="hero-section">
       <Stack h="100vh" justify="space-between" spacing={0}>
-        {/* Top Section */}
         <div ref={contentRef} className="content-wrapper">
-          <Group
-            position="apart"
-            w="100%"
-            align="flex-start"
-            justify="space-between"
-            pt="1rem"
-          >
-            {/* About Text */}
-            <Text size="sm" weight={500} maw={400}>
+          <Group w="100%" align="flex-start" justify="space-between" pt="xl">
+            <Text size="sm" weight={500} maw="25rem">
               Computer Science at University of Wisconsin - Madison. Fullstack
               Developer with a love for visual design and cybersecurity
             </Text>
 
-            {/* Skills */}
-            <Stack spacing="lg" maw={400}>
+            <Stack spacing="lg" maw="25rem">
               {Object.entries(skillCategories).map(([category, skills]) => (
-                <div key={category}>
+                <Box key={category}>
                   <Text size="sm" weight={500} mb="xs">
                     {category}
                   </Text>
-                  <Text size="sm" color="dimmed">
+                  <Text size="sm" c="dimmed">
                     {skills.join(", ")}
                   </Text>
-                </div>
+                </Box>
               ))}
             </Stack>
-            <img src={profileImage} alt="Profile" className="profile-image" />
+            <Box
+              component="img"
+              src={profileImage}
+              alt="Profile"
+              className="profile-image"
+            />
           </Group>
         </div>
 
-        {/* Bottom Section */}
         <div ref={nameRef} className="name-wrapper">
-          <Group position="apart" w="100%" pb={64}>
+          <Group w="100%" pb="4rem">
             <Stack spacing={0}>
-              <Text className="name-text">Sanjay</Text>
-              <Text className="name-text">Nagarimadugu</Text>
+              <Text className="name-text" fz="6rem" lh={1} fw={700}>
+                Sanjay
+              </Text>
+              <Text className="name-text" fz="6rem" lh={1} fw={700}>
+                Nagarimadugu
+              </Text>
             </Stack>
           </Group>
         </div>
