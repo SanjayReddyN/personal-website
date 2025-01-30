@@ -4,6 +4,16 @@
   padding: 0 4rem;
   background-color: #151515;
   margin-right: 80px; /* Space for navbar */
+
+  overflow: hidden;
+}
+
+.content-wrapper {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.name-wrapper {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
 .name-text {
