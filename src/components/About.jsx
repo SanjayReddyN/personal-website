@@ -53,43 +53,52 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="hero-section">
+    <section id="about" className="hero-section" ref={sectionRef}>
       <Stack h="100%" justify="space-between" spacing={0}>
         <div ref={contentRef} className="content-wrapper">
           <Group w="100%" align="flex-start" justify="space-between" pt="sm">
-            <Text size="sm" weight={500} maw="25rem">
+            <Text size="xs" weight={500} maw="20rem">
               Computer Science at University of Wisconsin - Madison. Fullstack
               Developer with a love for visual design and cybersecurity
             </Text>
 
-            <Stack spacing="lg" maw="25rem">
-              {Object.entries(skillCategories).map(([category, skills]) => (
-                <Box key={category}>
-                  <Text size="sm" weight={500} mb="xs">
-                    {category}
-                  </Text>
-                  <Text size="sm" c="dimmed">
-                    {skills.join(", ")}
-                  </Text>
-                </Box>
-              ))}
-            </Stack>
             <Box
               component="img"
               src={profileImage}
               alt="Profile"
               className="profile-image"
+              maw="20rem"
+              h="auto"
             />
+
+            <Stack spacing="sm" maw="20rem">
+              {Object.entries(skillCategories).map(([category, skills]) => (
+                <Box key={category}>
+                  <Text size="xs" weight={500} mb="xs">
+                    {category}
+                  </Text>
+                  <Text size="xs" c="dimmed">
+                    {skills.join(", ")}
+                  </Text>
+                </Box>
+              ))}
+            </Stack>
           </Group>
         </div>
 
         <div ref={nameRef} className="name-wrapper">
-          <Group w="100%" pb="4rem">
-            <Stack spacing={0}>
-              <Text className="name-text" fz="6rem" lh={1} fw={700}>
+          <Group w="100%" pb="4rem" pt={0} mt={0}>
+            <Stack spacing="xs">
+              <Text className="name-text" fz="10rem" lh={0} fw={325} mt="auto">
                 Sanjay
               </Text>
-              <Text className="name-text" fz="6rem" lh={1} fw={700}>
+              <Text
+                className="name-text"
+                fz="10rem"
+                lh={1.6}
+                fw={325}
+                mt="auto"
+              >
                 Nagarimadugu
               </Text>
             </Stack>

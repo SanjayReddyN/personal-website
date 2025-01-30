@@ -1,5 +1,5 @@
 .hero-section {
-  height: 100%;
+  height: 100;
   width: calc(100vw - 3rem);
   padding: 0 1rem;
   margin: 0;
@@ -14,12 +14,14 @@
 
 .name-wrapper {
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  padding-top: 0; /* Remove top padding */
+  margin-top: 0; /* Remove top margin */
 }
 
 .profile-image {
-  width: 18.75rem !important;
-  height: 18.75rem !important;
-  object-fit: cover !important;
+  width: 10rem; /* Match width to group */
+  height: 10rem; /* Maintain aspect ratio */
+  object-fit: fill !important;
   border-radius: 2rem !important;
 }
 /* .profile-image {
