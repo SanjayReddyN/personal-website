@@ -21,6 +21,7 @@ function App() {
       ) : (
         <AppShell>
           <div className="app-content">
+            <Navbar />
             <Suspense fallback={<LoadingOverlay visible />}>
               {/* <Navbar /> */}
               <main style={{ scrollBehavior: "smooth" }}>
