@@ -31,7 +31,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         className="loading-bar"
       />
       <Text className="loading-text" size="6rem" weight={700}>
-        Sanjay Nagarimadugu
+        {progress}
       </Text>
     </div>
   );

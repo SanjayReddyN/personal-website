@@ -11,6 +11,20 @@ import {
 import useScrollAnimation from "../hooks/useScrollAnimation";
 import "../App.css";
 
+const CardWithAnimation = ({ index, children }) => {
+  const [ref, style] = useScrollAnimation({
+    threshold: 100,
+    direction: index % 2 === 0 ? "left" : "right",
+    distance: 200,
+  });
+
+  return (
+    <div ref={ref} style={style}>
+      {children}
+    </div>
+  );
+};
+
 const Projects = () => {
   const [ref, isVisible] = useScrollAnimation();
   const experiences = [
@@ -71,29 +85,20 @@ const Projects = () => {
 
   return (
     <Container id="projects" size="lg" py="xl">
-      <div ref={ref}>
-        <Title order={2} mb="xl" align="left">
-          Experience & Projects
-        </Title>
-        <Tabs defaultValue="experience">
-          <Tabs.List grow mb="xl">
-            <Tabs.Tab value="experience">Experience</Tabs.Tab>
-            <Tabs.Tab value="projects">Projects</Tabs.Tab>
-          </Tabs.List>
+      <Title order={2} mb="xl" align="left">
+        Experience & Projects
+      </Title>
+      <Tabs defaultValue="experience">
+        <Tabs.List grow mb="xl">
+          <Tabs.Tab value="experience">Experience</Tabs.Tab>
+          <Tabs.Tab value="projects">Projects</Tabs.Tab>
+        </Tabs.List>
 
-          <Tabs.Panel value="experience">
-            <Stack spacing="xl">
-              {experiences.map((exp, index) => (
-                <Card
-                  key={index}
-                  shadow="sm"
-                  padding="lg"
-                  //   className={`card-hover slide-right delay-${index + 1}`}
-                  // >
-                  className={`animate-on-scroll card-hover ${
-                    index % 2 === 0 ? "slide-left" : "slide-right"
-                  } delay-${index + 1} ${isVisible ? "is-visible" : ""}`}
-                >
+        <Tabs.Panel value="experience">
+          <Stack spacing="xl">
+            {experiences.map((exp, index) => (
+              <CardWithAnimation key={index} index={index}>
+                <Card shadow="sm" padding="lg" className="card-hover">
                   <Group position="apart" mb="xs">
                     <Text weight={700}>{exp.company}</Text>
                     <Badge>{exp.date}</Badge>
@@ -109,22 +114,17 @@ const Projects = () => {
                     ))}
                   </ul>
                 </Card>
-              ))}
-            </Stack>
-          </Tabs.Panel>
+              </CardWithAnimation>
+            ))}
+          </Stack>
+        </Tabs.Panel>
 
-          <Tabs.Panel value="projects">
-            <Stack spacing="xl">
-              {projects.map((project, index) => (
-                // <Card key={index} shadow="sm" padding="lg" className="card-hover">
-                <Card
-                  key={index}
-                  shadow="sm"
-                  padding="lg"
-                  className={`animate-on-scroll card-hover ${
-                    index % 2 === 0 ? "slide-left" : "slide-right"
-                  } delay-${index + 1} ${isVisible ? "is-visible" : ""}`}
-                >
+        <Tabs.Panel value="projects">
+          <Stack spacing="xl">
+            {projects.map((project, index) => (
+              // <Card key={index} shadow="sm" padding="lg" className="card-hover">
+              <CardWithAnimation key={index} index={index}>
+                <Card shadow="sm" padding="lg" className="card-hover">
                   <Group position="apart" mb="xs">
                     <Text weight={700}>{project.title}</Text>
                     <Badge>{project.technologies}</Badge>
@@ -137,11 +137,11 @@ const Projects = () => {
                     ))}
                   </ul>
                 </Card>
-              ))}
-            </Stack>
-          </Tabs.Panel>
-        </Tabs>
-      </div>
+              </CardWithAnimation>
+            ))}
+          </Stack>
+        </Tabs.Panel>
+      </Tabs>
     </Container>
   );
 };

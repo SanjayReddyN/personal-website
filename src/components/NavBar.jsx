@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Stack, Tooltip, UnstyledButton } from "@mantine/core";
 import {
   IconBrandGithub,
@@ -56,8 +56,37 @@ const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navigationLinks.map((link) =>
+        document.getElementById(link.section)
+      );
+
+      const currentPosition = window.scrollY + window.innerHeight / 3;
+
+      sections.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (
+            currentPosition >= sectionTop &&
+            currentPosition < sectionBottom
+          ) {
+            setActive(index);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <>
+      <div className="navbar-hover-area" />
       <div className="navbar-tab" onMouseEnter={() => setIsVisible(true)} />
       <nav
         className={`navbar ${isVisible ? "visible" : ""}`}

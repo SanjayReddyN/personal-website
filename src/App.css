@@ -64,29 +64,3 @@ html {
   animation: fadeIn 1s ease-out forwards;
   animation-delay: 0.5s;
 }
-
-.animate-on-scroll {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.animate-on-scroll.is-visible {
-  animation: none;
-  visibility: visible;
-}
-
-.slide-right.is-visible {
-  animation: slideInRight 1s ease-out forwards;
-}
-
-.slide-left.is-visible {
-  animation: slideInLeft 1s ease-out forwards;
-}
-
-.slide-up.is-visible {
-  animation: slideInUp 1s ease-out forwards;
-}
-
-.delay-1.is-visible { animation-delay: 0.2s; }
-.delay-2.is-visible { animation-delay: 0.4s; }
-.delay-3.is-visible { animation-delay: 0.6s; }

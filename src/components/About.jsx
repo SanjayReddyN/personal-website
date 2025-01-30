@@ -90,7 +90,10 @@ const About = () => {
         {/* Bottom Section */}
         <div ref={nameRef} className="name-wrapper">
           <Group position="apart" w="100%" pb={64}>
-            <Text className="name-text">Sanjay Nagarimadugu</Text>
+            <Stack spacing={0}>
+              <Text className="name-text">Sanjay</Text>
+              <Text className="name-text">Nagarimadugu</Text>
+            </Stack>
           </Group>
         </div>
       </Stack>

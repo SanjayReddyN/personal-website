@@ -1,36 +1,53 @@
 import { useEffect, useRef, useState } from 'react';
 
-// Remove 'default' from the export declaration
-const useScrollAnimation = (threshold = 0.1) => {
+const useScrollAnimation = (options = {}) => {
+  const {
+    threshold = 100,
+    direction = 'up',
+    distance = 50,
+    startVisible = false
+  } = options;
+
   const elementRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [progress, setProgress] = useState(startVisible ? 1 : 0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold,
-      }
-    );
+    const element = elementRef.current;
+    if (!element) return;
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
-      }
+    const handleScroll = () => {
+      const rect = element.getBoundingClientRect();
+      const elementTop = rect.top;
+      const windowHeight = window.innerHeight;
+      
+      // Calculate distance from trigger point
+      const triggerPoint = windowHeight - threshold;
+      const distanceFromTrigger = triggerPoint - elementTop;
+      
+      // Calculate progress (0 to 1)
+      const newProgress = Math.min(
+        Math.max(distanceFromTrigger / distance, 0),
+        1
+      );
+      
+      setProgress(newProgress);
     };
-  }, [threshold]);
 
-  return [elementRef, isVisible];
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [threshold, distance]);
+
+  const style = {
+    transform: `translate${direction === 'up' ? 'Y' : 'X'}(${
+      (1 - progress) * (direction === 'left' ? -80 : 80)
+    }px)`,
+    opacity: progress,
+    transition: 'transform 0.1s ease-out, opacity 0.1s ease-out'
+  };
+
+  return [elementRef, style, progress];
 };
 
-// Export as default without assignment
 export default useScrollAnimation;

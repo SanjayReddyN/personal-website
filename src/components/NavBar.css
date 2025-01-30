@@ -1,22 +1,29 @@
 .navbar {
   position: fixed;
-  right: -60px; /* Start hidden */
+  right: -50px; /* Start hidden */
   top: 0;
   height: 100vh;
-  width: 60px;
-  background: rgba(21, 21, 21, 0.9);
+  width: 50px;
+  background: rgba(21, 21, 21, 0.95);
   backdrop-filter: blur(10px);
   z-index: 100;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 2rem 0;
+  justify-content: center;
+  gap: 8rem;
+  padding: 1rem 0;
   transition: right 0.3s ease;
+  opacity: 0;
 }
 
-.navbar:hover,
-.navbar.visible {
+/* Hover detection area */
+.navbar-hover-area {
+  position: fixed;
   right: 0;
+  top: 0;
+  width: 4rem;
+  height: 100vh;
+  z-index: 98;
 }
 
 .navbar-tab {
@@ -24,16 +31,38 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 4%;
-  height: 100%;
-  /* background: rgba(255, 255, 255, 0.3); */
-  border-radius: 4px 0 0 4px;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.1);
   z-index: 99;
+  border-radius: 2rem 0 0 2rem;
+  transition: right 0.3s ease;
+}
+
+.navbar-hover-area:hover ~ .navbar,
+.navbar:hover {
+  right: 0;
+  opacity: 1;
+}
+
+/* .navbar-tab::after {
+  display: none;
+} */
+.navbar-hover-area:hover ~ .navbar-tab,
+.navbar:hover ~ .navbar-tab,
+.navbar-tab:hover {
+  right: 50px; /* Match navbar width */
+}
+
+.navbar-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-link {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: var(--mantine-radius-md);
   display: flex;
   align-items: center;
@@ -52,6 +81,8 @@
 }
 
 .social-links {
-  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
