@@ -1,6 +1,6 @@
 import { Text, Stack, Group, Box } from "@mantine/core";
 import "./about/About.css";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import profileImage from "../images/Me.jpg";
 
 const About = () => {
@@ -54,9 +54,9 @@ const About = () => {
 
   return (
     <section id="about" className="hero-section">
-      <Stack h="100vh" justify="space-between" spacing={0}>
+      <Stack h="100%" justify="space-between" spacing={0}>
         <div ref={contentRef} className="content-wrapper">
-          <Group w="100%" align="flex-start" justify="space-between" pt="xl">
+          <Group w="100%" align="flex-start" justify="space-between" pt="sm">
             <Text size="sm" weight={500} maw="25rem">
               Computer Science at University of Wisconsin - Madison. Fullstack
               Developer with a love for visual design and cybersecurity
