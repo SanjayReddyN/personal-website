@@ -7,10 +7,8 @@ import "./App.css";
 
 // Lazy load components
 const About = lazy(() => import("./components/About"));
-const Skills = lazy(() => import("./components/Skills"));
 const Projects = lazy(() => import("./components/Projects"));
 const Goals = lazy(() => import("./components/Goals"));
-const VectorLogo = lazy(() => import("./components/VectorLogo"));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

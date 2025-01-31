@@ -8,17 +8,10 @@ const About = () => {
   const contentRef = useRef(null);
   const nameRef = useRef(null);
   const skillCategories = {
-    Languages: ["Python", "Java", "JavaScript", "C/C++", "HTML/CSS", "Lua"],
-    Frameworks: ["React.js", "Django", "Flask"],
-    "Tools & Technologies": [
-      "AWS",
-      "Docker",
-      "MongoDB",
-      "MySQL",
-      "Git",
-      "JIRA",
-    ],
-    Other: ["Machine Learning", "Digital Ocean", "JUnit", "Pandas"],
+    Backend: ["Python", "Java", "C/C++", "Flask", "Django", "Bash", "C#"],
+    Frontend: ["React.js", "Javascript", "Typescript", "CSS", "Node.js"],
+    Data: ["PostgreSQL", "MongoDB", "MySQL", "Pandas", "PyTorch", "R"],
+    Cloud: ["AWS", "Kubernetes", "Docker", "Terraform", "Lambda"],
   };
 
   useEffect(() => {

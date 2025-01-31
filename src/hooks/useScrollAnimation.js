@@ -18,24 +18,25 @@ const useScrollAnimation = (options = {}) => {
     const handleScroll = () => {
       const rect = element.getBoundingClientRect();
       const elementTop = rect.top;
+      const elementBottom = rect.bottom;
       const windowHeight = window.innerHeight;
-      
-      // Calculate distance from trigger point
-      const triggerPoint = windowHeight - threshold;
-      const distanceFromTrigger = triggerPoint - elementTop;
-      
+
+      // Calculate visibility percentage
+      const visibleHeight = Math.min(elementBottom, windowHeight) - Math.max(elementTop, 0);
+      const visibilityPercentage = visibleHeight / rect.height;
+
       // Calculate progress (0 to 1)
       const newProgress = Math.min(
-        Math.max(distanceFromTrigger / distance, 0),
+        Math.max((visibilityPercentage - 0.2) / 0.8, 0),
         1
       );
-      
+
       setProgress(newProgress);
     };
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, [threshold, distance]);
 

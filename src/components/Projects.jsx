@@ -26,7 +26,6 @@ const CardWithAnimation = ({ index, children }) => {
 };
 
 const Projects = () => {
-  const [ref, isVisible] = useScrollAnimation();
   const experiences = [
     {
       company: "Roblox",
@@ -122,7 +121,6 @@ const Projects = () => {
         <Tabs.Panel value="projects">
           <Stack spacing="xl">
             {projects.map((project, index) => (
-              // <Card key={index} shadow="sm" padding="lg" className="card-hover">
               <CardWithAnimation key={index} index={index}>
                 <Card shadow="sm" padding="lg" className="card-hover">
                   <Group position="apart" mb="xs">

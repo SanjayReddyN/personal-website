@@ -23,14 +23,18 @@ const LoadingScreen = ({ onLoadingComplete }) => {
   }, []);
 
   return (
-    <div className={`loading-screen ${isComplete ? "slide-down" : ""}`}>
+    <div className={`loading-screen ${isComplete ? "fade-out" : ""}`}>
       <Progress
         value={progress}
         size="xs"
         color="white"
-        className="loading-bar"
+        className={`loading-bar ${isComplete ? "slide-up fade-out" : ""}`}
       />
-      <Text className="loading-text" size="6rem" weight={700}>
+      <Text
+        className={`loading-text ${isComplete ? "slide-down fade-out" : ""}`}
+        size="6rem"
+        weight={700}
+      >
         {progress}
       </Text>
     </div>

@@ -70,10 +70,12 @@ const Goals = () => {
       </Grid>
 
       {/* Reading Section */}
+      <Title order={2} mb="xl" align="left">
+        Current Reading List
+      </Title>
       <Grid className="goal-section">
         <Grid.Col span={6}>
           <Stack className="goal-content">
-            <Title order={3}>Current Reading List</Title>
             <Stack spacing="md">
               {books.map((book, index) => (
                 <Card
