@@ -55,7 +55,7 @@ const About = () => {
     <section id="about" className="hero-section" ref={sectionRef}>
       <Stack h="100%" justify="space-between" spacing={0}>
         <div ref={contentRef} className="content-wrapper">
-          <Flex w="100%" align="flex-start" justify="space-between" pt="sm">
+          <Group w="100%" align="flex-start" justify="space-between" pt="sm">
             <Stack spacing="xs" justify="flex-start">
               <Text size="s" weight={500} maw="20rem">
                 Senior studying Computer Science and Data Science at University
@@ -113,7 +113,7 @@ const About = () => {
                 </Box>
               ))}
             </Stack>
-          </Flex>
+          </Group>
         </div>
 
         <div ref={nameRef} className="name-wrapper">
