@@ -1,4 +1,4 @@
-import { Text, Stack, Group, Box } from "@mantine/core";
+import { Text, Stack, Group, Box, Button, Flex } from "@mantine/core";
 import "./about/About.css";
 import { useState, useEffect, useRef } from "react";
 import profileImage from "../images/Me.jpg";
@@ -7,6 +7,7 @@ const About = () => {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const nameRef = useRef(null);
+  const [showContact, setShowContact] = useState(false);
   const skillCategories = {
     Backend: ["Python", "Java", "C/C++", "Flask", "Django", "Bash", "C#"],
     Frontend: ["React.js", "Javascript", "Typescript", "CSS", "Node.js"],
@@ -45,15 +46,51 @@ const About = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    alert(`${text} copied to clipboard`);
+  };
+
   return (
     <section id="about" className="hero-section" ref={sectionRef}>
       <Stack h="100%" justify="space-between" spacing={0}>
         <div ref={contentRef} className="content-wrapper">
-          <Group w="100%" align="flex-start" justify="space-between" pt="sm">
-            <Text size="xs" weight={500} maw="20rem">
-              Computer Science at University of Wisconsin - Madison. Fullstack
-              Developer with a love for visual design and cybersecurity
-            </Text>
+          <Flex w="100%" align="flex-start" justify="space-between" pt="sm">
+            <Stack spacing="xs" justify="flex-start">
+              <Text size="s" weight={500} maw="20rem">
+                Senior studying Computer Science and Data Science at University
+                of Wisconsin - Madison. Fullstack Developer with a love for
+                visual design and cybersecurity.
+              </Text>
+              <Text
+                size="sm"
+                weight={500}
+                mt="md"
+                style={{ cursor: "pointer", color: "#4C76E0" }}
+                onClick={() => setShowContact(!showContact)}
+              >
+                Contact Me
+              </Text>
+              {showContact && (
+                <Group spacing="xs" mt="xs">
+                  <Button
+                    weight={500}
+                    variant="subtle"
+                    size="xs"
+                    onClick={() => handleCopy("6089774238")}
+                  >
+                    6089774238
+                  </Button>
+                  <Button
+                    variant="subtle"
+                    size="xs"
+                    onClick={() => handleCopy("snagarimadug@wisc.edu")}
+                  >
+                    snagarimadug@wisc.edu
+                  </Button>
+                </Group>
+              )}
+            </Stack>
 
             <Box
               component="img"
@@ -76,22 +113,16 @@ const About = () => {
                 </Box>
               ))}
             </Stack>
-          </Group>
+          </Flex>
         </div>
 
         <div ref={nameRef} className="name-wrapper">
           <Group w="100%" pb="4rem" pt={0} mt={0}>
             <Stack spacing="xs">
-              <Text className="name-text" fz="10rem" lh={0} fw={325} mt="auto">
+              <Text className="name-text" fz="8rem" lh={1} fw={325} mt="auto">
                 Sanjay
               </Text>
-              <Text
-                className="name-text"
-                fz="10rem"
-                lh={1.6}
-                fw={325}
-                mt="auto"
-              >
+              <Text className="name-text" fz="8rem" lh={1} fw={325} mt="auto">
                 Nagarimadugu
               </Text>
             </Stack>

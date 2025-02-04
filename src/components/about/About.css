@@ -1,7 +1,7 @@
 .hero-section {
   height: 100vh;
   width: calc(100vw - 3rem);
-  padding: 0 1rem;
+  padding: 0 1rem 0 4rem;
   margin: 0;
   background-color: #151515;
   position: relative;
