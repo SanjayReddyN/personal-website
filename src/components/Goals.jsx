@@ -8,9 +8,13 @@ import {
   Badge,
   Group,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import "./Goals.css";
 
 const Goals = () => {
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const spanAmount = isSmallScreen ? 12 : 6;
+
   const goals = {
     drums: {
       title: "Learning Drums",
@@ -52,13 +56,13 @@ const Goals = () => {
 
       {/* Drums Section */}
       <Grid className="goal-section" mb="xl">
-        <Grid.Col span={6}>
+        <Grid.Col span={spanAmount}>
           <Stack className="goal-content">
             <Title order={3}>{goals.drums.title}</Title>
             <Text>{goals.drums.description}</Text>
           </Stack>
         </Grid.Col>
-        <Grid.Col span={6}>
+        <Grid.Col span={spanAmount}>
           <div className="image-placeholder">
             {goals.drums.imagePlaceholder}
           </div>
@@ -67,12 +71,12 @@ const Goals = () => {
 
       {/* 3D Modeling Section */}
       <Grid className="goal-section reverse" mb="xl">
-        <Grid.Col span={6}>
+        <Grid.Col span={spanAmount}>
           <div className="image-placeholder">
             {goals.modeling.imagePlaceholder}
           </div>
         </Grid.Col>
-        <Grid.Col span={6}>
+        <Grid.Col span={spanAmount}>
           <Stack className="goal-content">
             <Title order={3}>{goals.modeling.title}</Title>
             <Text>{goals.modeling.description}</Text>
@@ -85,7 +89,7 @@ const Goals = () => {
         Current Reading List
       </Title>
       <Grid className="goal-section">
-        <Grid.Col span={6}>
+        <Grid.Col span={spanAmount}>
           <Stack className="goal-content">
             <Stack spacing="md">
               {books.map((book, index) => (
@@ -109,7 +113,7 @@ const Goals = () => {
             </Stack>
           </Stack>
         </Grid.Col>
-        <Grid.Col span={6}>
+        <Grid.Col span={spanAmount}>
           <div className="image-placeholder">[Books Image Placeholder]</div>
         </Grid.Col>
       </Grid>
