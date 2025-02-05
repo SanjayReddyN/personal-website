@@ -83,7 +83,7 @@ const Projects = () => {
   ];
 
   return (
-    <Container id="projects" size="lg" py="xl">
+    <Container id="projects" size="lg" py="xl" pl="3rem">
       <Title order={2} mb="xl" align="left">
         Experience & Projects
       </Title>

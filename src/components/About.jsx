@@ -119,10 +119,66 @@ const About = () => {
         <div ref={nameRef} className="name-wrapper">
           <Group w="100%" pb="4rem" pt={0} mt={0}>
             <Stack spacing="xs">
-              <Text className="name-text" fz="8rem" lh={1} fw={325} mt="auto">
+              <Text
+                visibleFrom="md"
+                className="name-text"
+                fz="8rem"
+                lh={1}
+                fw={325}
+                mt="auto"
+              >
                 Sanjay
               </Text>
-              <Text className="name-text" fz="8rem" lh={1} fw={325} mt="auto">
+              <Text
+                visibleFrom="md"
+                className="name-text"
+                fz="8rem"
+                lh={1}
+                fw={325}
+                mt="auto"
+              >
+                Nagarimadugu
+              </Text>
+              <Text
+                visibleFrom="sm"
+                hiddenFrom="md"
+                className="name-text"
+                fz="5rem"
+                lh={1}
+                fw={325}
+                mt="auto"
+              >
+                Sanjay
+              </Text>
+              <Text
+                visibleFrom="sm"
+                hiddenFrom="md"
+                className="name-text"
+                fz="5rem"
+                lh={1}
+                fw={325}
+                mt="auto"
+              >
+                Nagarimadugu
+              </Text>
+              <Text
+                hiddenFrom="sm"
+                className="name-text"
+                fz="2.5rem"
+                lh={1}
+                fw={325}
+                mt="auto"
+              >
+                Sanjay
+              </Text>
+              <Text
+                hiddenFrom="sm"
+                className="name-text"
+                fz="2.5rem"
+                lh={1}
+                fw={325}
+                mt="auto"
+              >
                 Nagarimadugu
               </Text>
             </Stack>

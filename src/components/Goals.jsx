@@ -11,6 +11,21 @@ import {
 import "./Goals.css";
 
 const Goals = () => {
+  const goals = {
+    drums: {
+      title: "Learning Drums",
+      description:
+        "Recently assembled the Alesis Nitro Max drum kit and excited to begin my journey into percussion. Looking forward to mastering rhythm and coordination through regular practice sessions.",
+      imagePlaceholder: "[Drum Kit Image Placeholder]",
+    },
+    modeling: {
+      title: "Digital Art",
+      description:
+        "Exploring Adobe Creative Suite and Blender to create images and models. Focusing on learning fundamental modeling techniques and creative design principles.",
+      imagePlaceholder: "[3D Model Image Placeholder]",
+    },
+  };
+
   const books = [
     {
       title: "Atomic Habits",
@@ -30,7 +45,7 @@ const Goals = () => {
   ];
 
   return (
-    <Container id="goals" size="lg" py="xl">
+    <Container id="goals" size="lg" py="xl" pl="3rem">
       <Title order={2} mb="xl" align="left">
         Personal Goals
       </Title>
@@ -39,32 +54,28 @@ const Goals = () => {
       <Grid className="goal-section" mb="xl">
         <Grid.Col span={6}>
           <Stack className="goal-content">
-            <Title order={3}>Learning Drums</Title>
-            <Text>
-              Recently assembled the Alesis Nitro Max drum kit and excited to
-              begin my journey into percussion. Looking forward to mastering
-              rhythm and coordination through regular practice sessions.
-            </Text>
+            <Title order={3}>{goals.drums.title}</Title>
+            <Text>{goals.drums.description}</Text>
           </Stack>
         </Grid.Col>
         <Grid.Col span={6}>
-          <div className="image-placeholder">[Drum Kit Image Placeholder]</div>
+          <div className="image-placeholder">
+            {goals.drums.imagePlaceholder}
+          </div>
         </Grid.Col>
       </Grid>
 
       {/* 3D Modeling Section */}
       <Grid className="goal-section reverse" mb="xl">
         <Grid.Col span={6}>
-          <div className="image-placeholder">[3D Model Image Placeholder]</div>
+          <div className="image-placeholder">
+            {goals.modeling.imagePlaceholder}
+          </div>
         </Grid.Col>
         <Grid.Col span={6}>
           <Stack className="goal-content">
-            <Title order={3}>3D Modeling Journey</Title>
-            <Text>
-              Exploring Adobe Creative Suite and Blender to create 3D models.
-              Focusing on learning fundamental modeling techniques and creative
-              design principles.
-            </Text>
+            <Title order={3}>{goals.modeling.title}</Title>
+            <Text>{goals.modeling.description}</Text>
           </Stack>
         </Grid.Col>
       </Grid>
