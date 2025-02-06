@@ -41,7 +41,7 @@ const Projects = () => {
     {
       company: "University of Wisconsin - Madison",
       role: "Peer Mentor",
-      date: "Sep 2023 - Dec 2024",
+      date: "Sep 2023 - Current",
       details: [
         "Working as a peer mentor for CS 542 and CS 435, supporting over 200 students",
         "Held regular office hours to clarify course concepts and assist with problem sets",
@@ -85,61 +85,54 @@ const Projects = () => {
   return (
     <Container id="projects" size="lg" py="xl" pl="3rem">
       <Title order={2} mb="xl" align="left">
-        Experience & Projects
+        Experience
       </Title>
-      <Tabs defaultValue="experience">
-        <Tabs.List grow mb="xl">
-          <Tabs.Tab value="experience">Experience</Tabs.Tab>
-          <Tabs.Tab value="projects">Projects</Tabs.Tab>
-        </Tabs.List>
-
-        <Tabs.Panel value="experience">
-          <Stack spacing="xl">
-            {experiences.map((exp, index) => (
-              <CardWithAnimation key={index} index={index}>
-                <Card shadow="sm" padding="lg" className="card-hover">
-                  <Group position="apart" mb="xs">
-                    <Text weight={700}>{exp.company}</Text>
-                    <Badge>{exp.date}</Badge>
-                  </Group>
-                  <Text color="dimmed" mb="md">
-                    {exp.role}
-                  </Text>
-                  <ul style={{ margin: 0, paddingLeft: "20px" }}>
-                    {exp.details.map((detail, i) => (
-                      <li key={i}>
-                        <Text size="sm">{detail}</Text>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </CardWithAnimation>
-            ))}
-          </Stack>
-        </Tabs.Panel>
-
-        <Tabs.Panel value="projects">
-          <Stack spacing="xl">
-            {projects.map((project, index) => (
-              <CardWithAnimation key={index} index={index}>
-                <Card shadow="sm" padding="lg" className="card-hover">
-                  <Group position="apart" mb="xs">
-                    <Text weight={700}>{project.title}</Text>
-                    <Badge>{project.technologies}</Badge>
-                  </Group>
-                  <ul style={{ margin: 0, paddingLeft: "20px" }}>
-                    {project.details.map((detail, i) => (
-                      <li key={i}>
-                        <Text size="sm">{detail}</Text>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </CardWithAnimation>
-            ))}
-          </Stack>
-        </Tabs.Panel>
-      </Tabs>
+      <Stack spacing="xl">
+        {experiences.map((exp, index) => (
+          <CardWithAnimation key={index} index={index}>
+            <Card shadow="sm" padding="lg" className="card-hover">
+              <Group position="apart" mb="xs">
+                <Text weight={700}>{exp.company}</Text>
+                <Badge>{exp.date}</Badge>
+              </Group>
+              <Text color="dimmed" mb="md">
+                {exp.role}
+              </Text>
+              <ul style={{ margin: 0, paddingLeft: "20px" }}>
+                {exp.details.map((detail, i) => (
+                  <li key={i}>
+                    <Text size="sm">{detail}</Text>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </CardWithAnimation>
+        ))}
+      </Stack>
+      <div style={{ marginTop: "4rem" }} />{" "}
+      {/* Add gap between Experience and Projects */}
+      <Title order={2} mb="xl" align="left">
+        Projects
+      </Title>
+      <Stack spacing="xl">
+        {projects.map((project, index) => (
+          <CardWithAnimation key={index} index={index}>
+            <Card shadow="sm" padding="lg" className="card-hover">
+              <Group position="apart" mb="xs">
+                <Text weight={700}>{project.title}</Text>
+                <Badge>{project.technologies}</Badge>
+              </Group>
+              <ul style={{ margin: 0, paddingLeft: "20px" }}>
+                {project.details.map((detail, i) => (
+                  <li key={i}>
+                    <Text size="sm">{detail}</Text>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </CardWithAnimation>
+        ))}
+      </Stack>
     </Container>
   );
 };
