@@ -60,7 +60,7 @@ const About = () => {
               <Text size="s" weight={500} maw="20rem">
                 Senior studying Computer Science and Data Science at University
                 of Wisconsin - Madison. Fullstack Developer with a love for
-                visual design and cybersecurity.
+                cybersecurity and game development.
               </Text>
               <Text
                 size="sm"

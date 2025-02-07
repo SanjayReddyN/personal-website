@@ -10,6 +10,9 @@ import {
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import "./Goals.css";
+import NatureCollage from "../images/Nature_Collage.jpg";
+import DrumSet from "../images/Drums.jpg";
+import Reading from "../images/Reading.jpg";
 
 const Goals = () => {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
@@ -20,13 +23,13 @@ const Goals = () => {
       title: "Learning Drums",
       description:
         "Recently assembled the Alesis Nitro Max drum kit and excited to begin my journey into percussion. Looking forward to mastering rhythm and coordination through regular practice sessions.",
-      imagePlaceholder: "[Drum Kit Image Placeholder]",
+      imagePlaceholder: DrumSet,
     },
     modeling: {
       title: "Digital Art",
       description:
-        "Exploring Adobe Creative Suite and Blender to create images and models. Focusing on learning fundamental modeling techniques and creative design principles.",
-      imagePlaceholder: "[3D Model Image Placeholder]",
+        "Exploring Adobe Creative Suite and Blender to create images and models. Focusing on learning fundamental modeling techniques and creative design principles. (I'm very happy with the turtle)",
+      imagePlaceholder: NatureCollage,
     },
   };
 
@@ -64,7 +67,18 @@ const Goals = () => {
         </Grid.Col>
         <Grid.Col span={spanAmount}>
           <div className="image-placeholder">
-            {goals.drums.imagePlaceholder}
+            <img
+              src={goals.drums.imagePlaceholder}
+              alt="Digital Art"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                maxWidth: "100%",
+                maxHeight: "100%",
+                borderRadius: "1rem",
+              }}
+            />
           </div>
         </Grid.Col>
       </Grid>
@@ -73,7 +87,18 @@ const Goals = () => {
       <Grid className="goal-section reverse" mb="xl">
         <Grid.Col span={spanAmount}>
           <div className="image-placeholder">
-            {goals.modeling.imagePlaceholder}
+            <img
+              src={goals.modeling.imagePlaceholder}
+              alt="Digital Art"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                maxWidth: "100%",
+                maxHeight: "100%",
+                borderRadius: "1rem",
+              }}
+            />
           </div>
         </Grid.Col>
         <Grid.Col span={spanAmount}>
@@ -114,7 +139,20 @@ const Goals = () => {
           </Stack>
         </Grid.Col>
         <Grid.Col span={spanAmount}>
-          <div className="image-placeholder">[Books Image Placeholder]</div>
+          <div className="image-placeholder">
+            <img
+              src={Reading}
+              alt="Digital Art"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                maxWidth: "100%",
+                maxHeight: "100%",
+                borderRadius: "1rem",
+              }}
+            />
+          </div>
         </Grid.Col>
       </Grid>
     </Container>
