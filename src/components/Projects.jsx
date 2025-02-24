@@ -31,6 +31,7 @@ const Projects = () => {
       company: "Roblox",
       role: "Software Developer Intern",
       date: "May 2024 - Aug 2024",
+      ongoing: false, // set true if this experience is ongoing
       details: [
         "Worked on the Assessments Team contributing to platform for 100,000+ applicants",
         "Implemented new assessment features using Flask SQLAlchemy",
@@ -39,9 +40,19 @@ const Projects = () => {
       ],
     },
     {
+      company: "Walmart",
+      role: "Software Engineer II, Information Security",
+      date: "Starting July 2025",
+      ongoing: true, // set true if this experience is ongoing
+      details: [
+        "Accepted an offer to work on the Information Security team at Walmart",
+      ],
+    },
+    {
       company: "University of Wisconsin - Madison",
       role: "Peer Mentor",
       date: "Sep 2023 - Current",
+      ongoing: true,
       details: [
         "Working as a peer mentor for CS 542 and CS 435, supporting over 200 students",
         "Held regular office hours to clarify course concepts and assist with problem sets",
@@ -52,6 +63,7 @@ const Projects = () => {
       company: "NSpire.ai",
       role: "Software Developer Intern",
       date: "May 2023 - Sep 2023",
+      ongoing: false,
       details: [
         "Implemented Image Quality Analysis and Audio Sentiment Analysis",
         "Developed automation scripts for AI/ML model testing",
@@ -63,21 +75,45 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Greenworld",
-      technologies: "Python, MySQL",
+      title: "Self-Hosted Cloud Photo Storage",
+      technologies: "React, Node.js, MongoDB",
+      ongoing: true,
       details: [
-        "Created a program for waste management database connections",
-        "Implemented plotting utility for top donors and login system",
-        "Integrated MySQL databases with Python for UI and functionality",
+        "Developing a privacy-focused, self-hosted alternative to Google Photos to empower users with full control over their image data.",
+        "Implementing secure authentication, image upload/download, and a web-based user interface using React for seamless interaction.",
+        "Integrating backend services with Node.js and Express and used MongoDB for secure metadata storage and efficient search functionality.",
+        "Exploring advanced features like facial recognition integration and offline access to further enhance the user experience.",
+      ],
+    },
+    {
+      title: "The Floor is Confusing",
+      technologies: "Unity, C#, Quest Platform",
+      ongoing: true,
+      details: [
+        "Designing a VR parkour game where players traverse levels using an innovative slingshot mechanism; inspired by Angry Birds for trajectory visualization and The Floor is Lava for dynamic platform puzzles.",
+        "Utilizing Unity and C# to implement intuitive hand-tracking controls on Meta Quest devices with a focus on safety and comfort.",
+        "Developing levels featuring diverse platforms that challenge players to strategize their routes while minimizing motion discomfort.",
+        "Prototyping additional features such as timer-based leaderboards, alternative movement abilities (air dash, wall jump), and environmental effects like rising lava to extend gameplay depth.",
       ],
     },
     {
       title: "Gesture Control",
       technologies: "Python, OpenCV, Mediapipe",
+      ongoing: false,
       details: [
         "Created application for computer control via hand gestures",
         "Implemented multiple control modes including mouse and media control",
         "Used OpenCV and Mediapipe with Tensorflow for gesture recognition",
+      ],
+    },
+    {
+      title: "Greenworld",
+      technologies: "Python, MySQL",
+      ongoing: false, // set true if project is ongoing
+      details: [
+        "Created a program for waste management database connections",
+        "Implemented plotting utility for top donors and login system",
+        "Integrated MySQL databases with Python for UI and functionality",
       ],
     },
   ];
@@ -93,7 +129,14 @@ const Projects = () => {
             <Card shadow="sm" padding="lg" className="card-hover">
               <Group position="apart" mb="xs">
                 <Text weight={700}>{exp.company}</Text>
-                <Badge>{exp.date}</Badge>
+                <Group spacing="xs">
+                  <Badge>{exp.date}</Badge>
+                  {exp.ongoing && (
+                    <Badge color="green" variant="filled">
+                      Ongoing
+                    </Badge>
+                  )}
+                </Group>
               </Group>
               <Text color="dimmed" mb="md">
                 {exp.role}
@@ -109,7 +152,8 @@ const Projects = () => {
           </CardWithAnimation>
         ))}
       </Stack>
-      <div style={{ marginTop: "4rem" }} />{" "}
+
+      <div style={{ marginTop: "4rem" }} />
       {/* Add gap between Experience and Projects */}
       <Title order={2} mb="xl" align="left">
         Projects
@@ -120,7 +164,14 @@ const Projects = () => {
             <Card shadow="sm" padding="lg" className="card-hover">
               <Group position="apart" mb="xs">
                 <Text weight={700}>{project.title}</Text>
-                <Badge>{project.technologies}</Badge>
+                <Group spacing="xs">
+                  <Badge>{project.technologies}</Badge>
+                  {project.ongoing && (
+                    <Badge color="green" variant="filled">
+                      Ongoing
+                    </Badge>
+                  )}
+                </Group>
               </Group>
               <ul style={{ margin: 0, paddingLeft: "20px" }}>
                 {project.details.map((detail, i) => (
