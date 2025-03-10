@@ -39,15 +39,15 @@ const Projects = () => {
         "Fixed frontend bugs using React in Lua",
       ],
     },
-    {
-      company: "Walmart",
-      role: "Software Engineer II, Information Security",
-      date: "Starting July 2025",
-      ongoing: true, // set true if this experience is ongoing
-      details: [
-        "Accepted an offer to work on the Information Security team at Walmart",
-      ],
-    },
+    // {
+    //   company: "Walmart",
+    //   role: "Software Engineer II, Information Security",
+    //   date: "Starting July 2025",
+    //   ongoing: true, // set true if this experience is ongoing
+    //   details: [
+    //     "Accepted an offer to work on the Information Security team at Walmart",
+    //   ],
+    // },
     {
       company: "University of Wisconsin - Madison",
       role: "Peer Mentor",
