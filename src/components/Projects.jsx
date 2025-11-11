@@ -45,14 +45,17 @@ const Projects = () => {
       date: "Starting July 2025",
       ongoing: true, // set true if this experience is ongoing
       details: [
-        "Accepted an offer to work on the Information Security team at Walmart",
+        "Engineered certificate lifecycle management systems and service account rotation scripts, reducing manual operations",
+        "Built real-time health dashboards and analytics tools to identify root causes of certificate issues",
+        "Improved our certificate deployment platform to achieve 99.99% certificate download success rate (up from 90%) and reduced retries by 77%",
+        "Excelled at using the campus bikes to go on campus tours and to the gym",
       ],
     },
     {
       company: "University of Wisconsin - Madison",
       role: "Peer Mentor",
       date: "Sep 2023 - Current",
-      ongoing: true,
+      ongoing: false,
       details: [
         "Working as a peer mentor for CS 542 and CS 435, supporting over 200 students",
         "Held regular office hours to clarify course concepts and assist with problem sets",
@@ -77,7 +80,7 @@ const Projects = () => {
     {
       title: "Self-Hosted Cloud Photo Storage",
       technologies: "React, Node.js, MongoDB",
-      ongoing: true,
+      ongoing: false,
       details: [
         "Developing a privacy-focused, self-hosted alternative to Google Photos to empower users with full control over their image data.",
         "Implementing secure authentication, image upload/download, and a web-based user interface using React for seamless interaction.",
